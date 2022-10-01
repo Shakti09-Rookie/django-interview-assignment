@@ -21,7 +21,7 @@
     view particular members and update them as LIBRARIAN or view self as MEMBER
     path('members/<str:id>/', MemberOpsAPI.as_view(), name='member-operations'),
     view all books or create books as LIBRARIAN
-    path('localhost:8000/books/', BooksView.as_view(), name = 'books'),
+    path('<hosted_url>/', BooksView.as_view(), name = 'books'),
     view a single book details, update, or delete it as LIBRARIAN
     path('<hosted_url>/books/<str:id>/', BookView.as_view(), name = 'book'),
     BORROW or RETURN book as MEMBER
