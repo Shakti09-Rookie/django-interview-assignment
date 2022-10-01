@@ -9,4 +9,8 @@ ROLE_CHOICES = (
 )
 class User(AbstractUser):
 
-    role_type = models.CharField(max_length=25, choices=ROLE_CHOICES)
+    role = models.CharField(max_length=25, choices=ROLE_CHOICES,)
+
+    # def save(self, *args, **kwargs):
+    #     if not self.pk:
+    #         super().save(*args, **kwargs)

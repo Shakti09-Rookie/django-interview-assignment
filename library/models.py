@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 # Create your models here.
 
@@ -16,3 +17,16 @@ class Book(models.Model):
 
     def _str__(self):
         return self.Name
+
+class BookRecords(models.Model):
+    choices = [
+        ("BORROW", "BORROW"),
+        ("RETURN", "RETURN")
+    ]
+    book = models.ForeignKey("Book", on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    Status = models.CharField(max_length=50, choices=choices, null=True)
+    created = models.DateField(auto_now=False, auto_now_add=True)
+
+    class Meta:
+        db_table = "BookRecords"
