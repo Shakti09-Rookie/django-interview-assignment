@@ -14,7 +14,7 @@ class RegisterAPI(APIView):
     def post(self, request):
         try:
             serializer = UserSerializer(data=request.data)
-            if serializer.is_valid(raise_exception=True):
+            if serializer.is_valid():
                 serializer.save()
                 user=User.objects.get(username=serializer.data['username'])
                 refresh = RefreshToken.for_user(user)
