@@ -23,6 +23,10 @@
     view all books or create books as LIBRARIAN
     path('localhost:8000/books/', BooksView.as_view(), name = 'books'),
     view a single book details, update, or delete it as LIBRARIAN
-    path('localhost:8000/books/<str:id>/', BookView.as_view(), name = 'book'),
+    path('<hosted_url>/books/<str:id>/', BookView.as_view(), name = 'book'),
     BORROW or RETURN book as MEMBER
-    path('localhost:8000/books/<str:id>/issue/', BookIssueView.as_view(), name = 'issue'),
+    path('<hosted_url>/books/<str:id>/issue/', BookIssueView.as_view(), name = 'issue'),
+
+    Swagger Documentation paths
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
