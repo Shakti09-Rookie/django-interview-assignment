@@ -29,7 +29,13 @@ SECRET_KEY = os.environ.get('LM_SECRET_KEY')
 DEBUG = os.environ.get('DEBUG_VALUE')
 
 ALLOWED_HOSTS = [
-    'lmsapi-drf.herokuapp.com'
+    "lmsapi-drf.herokuapp.com",
+    "https://lmsapi-drf.herokuapp.com",
+    "http://lmsapi-drf.herokuapp.com",
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000"
 ]
 
 
